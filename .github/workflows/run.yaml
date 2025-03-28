@@ -27,3 +27,7 @@ jobs:
           echo $TAISJWT > taos.txt
           cat taos.txt
           echo "_______________________"
+
+      - name: Use TAIS_JWT Secrets
+        run: |
+          echo $TAISJWT
