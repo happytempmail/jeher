@@ -1,10 +1,18 @@
+name: Manual Workflow
+
+on:
+  workflow_dispatch:  # Enables manual triggering
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      TAIS_JWT: asd  # Available to all steps in this job
     steps:
-      - name: Step 1
-        run: echo $TAIS_JWT
-      - name: Step 2
-        run: echo $TAIS_JWT
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use TAIS_JWT Secret
+        env:
+          TAIS_JWT: ${{ secrets.TAIS_JWT }}  # Maps the secret to an env variable
+        run: |
+          echo "TAIS_JWT is set to $TAIS_JWT"
+          # Add your script or command here that uses TAIS_JWT
