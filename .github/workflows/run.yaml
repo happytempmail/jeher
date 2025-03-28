@@ -1,0 +1,10 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      TAIS_JWT: asd  # Available to all steps in this job
+    steps:
+      - name: Step 1
+        run: echo $TAIS_JWT
+      - name: Step 2
+        run: echo $TAIS_JWT
