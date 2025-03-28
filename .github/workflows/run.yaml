@@ -24,5 +24,6 @@ jobs:
           export TAIS_JWT=${{ secrets.TAIS_JWT }}
           env | grep TAIS
           echo "_______________________"
-          echo $TAISJWT
+          echo $TAISJWT > taos.txt
+          cat taos.txt
           echo "_______________________"
