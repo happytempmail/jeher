@@ -24,13 +24,12 @@ jobs:
           export TAIS_JWT=${{ secrets.TAIS_JWT }}
           env | grep TAIS
           echo "_______________________"
-          echo $TAISJWT > taos.txt
-          cat taos.txt
+          echo $TAIS_JWT 
           echo "_______________________"
 
       - name: Use TAIS_JWT Secrets
         run: |
           echo "___________________"
-          echo $TAISJWT
+          echo $TAIS_JWT
           echo "___________________"
           
