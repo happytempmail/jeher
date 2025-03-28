@@ -30,4 +30,7 @@ jobs:
 
       - name: Use TAIS_JWT Secrets
         run: |
+          echo "___________________"
           echo $TAISJWT
+          echo "___________________"
+          
